@@ -22,7 +22,7 @@ public class App {
 
     private static void showMainMenu() {
         while (true) {
-            System.out.println("\n=== SISTEMA PDV ========= ===");
+            System.out.println("\n=== SISTEMA PDV ===");
             System.out.println("1) Cadastrar produto");
             System.out.println("2) Listar produtos   ");
             System.out.println("3) Entrada no estoque");
