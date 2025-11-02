@@ -19,22 +19,34 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcao = -1;
         carregador.carregarProdutosPadrao();
-        
+
         do {
             InputUtils.carregarMenuOpcaoes();
             opcao = InputUtils.lerInt(sc, "Escolha: ");
 
             switch (opcao) {
-                case 1 -> produtoService.cadastrarProduto(
-                        InputUtils.lerInt(sc, "Código: "),
-                        InputUtils.lerString(sc, "Nome: "),
-                        InputUtils.lerDouble(sc, "Preço: "));
+                case 1 -> {
+                    int codigo = InputUtils.lerInt(sc, "Código: ");
+                    if (produtoService.buscarPorCodigoProduto(codigo) != null) {
+                        System.out.println("Atenção: já existe um produto com o código " + codigo + "!");
+                        break;
+                    }
+                    String nome = InputUtils.lerString(sc, "Nome: ");
+                    double preco = InputUtils.lerDouble(sc, "Preço: ");
+                    produtoService.cadastrarProduto(codigo, nome, preco);
+                }
 
                 case 2 -> produtoService.listarProdutos();
 
-                case 3 -> produtoService.adicionarEstoque(
-                        InputUtils.lerInt(sc, "Código: "),
-                        InputUtils.lerInt(sc, "Quantidade: "));
+                case 3 -> {
+                    int codigo = InputUtils.lerInt(sc, "Código: ");
+                    if (produtoService.buscarPorCodigoProduto(codigo) == null) {
+                        System.out.println("Produto não encontrado!");
+                        break;
+                    }
+                    int quantidade = InputUtils.lerInt(sc, "Quantidade: ");
+                    produtoService.adicionarEstoque(codigo, quantidade);
+                }
 
                 case 4 -> {
                     TipoVenda tipo = TipoVenda.valueOf(
@@ -44,19 +56,22 @@ public class Main {
                             ? InputUtils.lerString(sc, "Endereço: ")
                             : null;
 
-                    vendaService.registrarVenda(
-                            tipo,
-                            endereco,
-                            InputUtils.lerInt(sc, "Código do produto: "),
-                            InputUtils.lerInt(sc, "Quantidade: "));
+                    int codigoProduto = InputUtils.lerInt(sc, "Código do produto: ");
+                    if (produtoService.buscarPorCodigoProduto(codigoProduto) == null) {
+                        System.out.println("Produto não encontrado!");
+                        break;
+                    }
+
+                    int quantidade = InputUtils.lerInt(sc, "Quantidade: ");
+                    vendaService.registrarVenda(tipo, endereco, codigoProduto, quantidade);
                 }
 
                 case 5 -> vendaService.listarVendas();
                 case 6 -> vendaService.gerarRelatorioConsolidado();
                 case 7 -> produtoService.relatorioEstoque();
 
-                case 0 -> System.out.println(" Sistema encerrado.");
-                default -> System.out.println("Atencao : Opção inválida!");
+                case 0 -> System.out.println("Sistema encerrado.");
+                default -> System.out.println("Atenção: opção inválida!");
             }
 
         } while (opcao != 0);

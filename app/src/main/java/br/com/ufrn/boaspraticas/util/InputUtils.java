@@ -3,7 +3,7 @@ package br.com.ufrn.boaspraticas.util;
 import java.util.Scanner;
 
 public class InputUtils {
-
+    
     public static int lerInt(Scanner sc, String mensagem) {
         while (true) {
             try {
