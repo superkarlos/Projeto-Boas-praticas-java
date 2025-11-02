@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Venda {
+    
     private int id;
     private TipoVenda tipo;
     private String enderecoEntrega;

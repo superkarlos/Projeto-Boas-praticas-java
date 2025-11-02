@@ -6,14 +6,7 @@ import br.com.ufrn.boaspraticas.service.ProdutoService;
 import br.com.ufrn.boaspraticas.service.VendaService;
 import br.com.ufrn.boaspraticas.util.CarregarModel;
 import br.com.ufrn.boaspraticas.util.InputUtils;
-/**
- * ✅ BOAS PRÁTICAS:
- * - Classe única para interação com o usuário.
- * - Fluxo limpo e organizado com switch-case.
- * - Nenhuma regra de negócio implementada aqui (seguindo o princípio MVC).
- */import java.util.Scanner;
-
-import javax.swing.text.Utilities;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
