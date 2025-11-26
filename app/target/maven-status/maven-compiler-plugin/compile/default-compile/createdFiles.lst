@@ -1,0 +1,11 @@
+br\com\ufrn\boaspraticas\model\Venda.class
+br\com\ufrn\boaspraticas\service\VendaService.class
+br\com\ufrn\boaspraticas\Main.class
+br\com\ufrn\boaspraticas\repository\ProdutoRepository.class
+br\com\ufrn\boaspraticas\excption\BusinessException.class
+br\com\ufrn\boaspraticas\model\Produto.class
+br\com\ufrn\boaspraticas\util\InputUtils.class
+br\com\ufrn\boaspraticas\model\ItemVenda.class
+br\com\ufrn\boaspraticas\model\TipoVenda.class
+br\com\ufrn\boaspraticas\service\ProdutoService.class
+br\com\ufrn\boaspraticas\util\CarregarModel.class
