@@ -1,1 +1,1 @@
-docker run --rm --network=host -v "${PWD}:/usr/src" sonarsource/sonar-scanner-cli -D"sonar.projectKey=boaspraticas" -D"sonar.sources=app/src" -D"sonar.java.binaries=app/target/classes" -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_a26f9c158fe4de113426f9b21097ddc54e56bbc7"
+docker run --rm --network=host -v "${PWD}:/usr/src" sonarsource/sonar-scanner-cli -D"sonar.projectKey=boaspraticas" -D"sonar.sources=app/src" -D"sonar.java.binaries=app/target/classes" -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_bed369d4143b4c71c671eed02a500ab223755345"
